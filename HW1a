@@ -1,0 +1,44 @@
+//Nate Ward 1/7/2015
+//A program to Fill an array with random ints and count the evens and odds
+
+package com.nward.evenorodd;
+
+import java.util.Random;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		ArrayCounter();
+		
+	}
+
+	private static int[] FillArray(){
+		int[] a = new int[50];
+		Random rand = new Random();
+		for(int i = 0; i < 50; i++){
+			a[i] = rand.nextInt();
+		}
+		return a;
+	}
+	
+	private static void ArrayCounter(){
+		int[] a = FillArray();
+		int even = 0;
+		int odd = 0;
+		 
+		
+		for(int i : a){
+			if (i % 2 == 0){
+				even++;
+			}
+			else {
+				odd++;
+			}
+		}
+		System.out.println("The array contains " + even + " even numbers.");
+		System.out.println("The array contains " + odd + " odd numbers.");
+	}
+	
+	
+}
