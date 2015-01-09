@@ -1,0 +1,45 @@
+//Nate Ward 1/8/2015 
+//program that fills an array with random ints between 1 and 20 then prints those greater than 10
+package pkg.nward.quiz1;
+
+import java.util.Random;
+
+public class Program {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Program.printArray();
+			
+	}
+
+	private static int[] makeArray(){
+		int[] randoms = new int[20];
+		for(int i = 0; i < 20; i++){
+			randoms[i] = getRandomInt(1, 20);
+		}
+		return randoms;
+	}
+	
+	private static void printArray(){
+		int[] arr = makeArray();
+		int count = 0;
+		for(int i : arr){
+			if(i > 10){
+				System.out.println(i);
+				count++;
+			}
+		}
+		System.out.println("----");
+		System.out.println(count + " ints in the array are greater than 10");
+	}
+	
+	private static int getRandomInt(int min, int max){
+		
+		Random rand = new Random();
+		int i = rand.nextInt((max - min) + 1);
+		return i;
+	}
+
+	
+	
+}
