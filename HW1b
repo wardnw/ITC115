@@ -1,0 +1,83 @@
+//Nate Ward 1/6/2015
+//This program looks up books by an author
+
+package pkg.nward.hw2;
+
+import java.util.Scanner;
+
+public class Program {
+
+	static Scanner scan = new Scanner(System.in);
+	//used these constants after last wednesday's class
+	final static int AUTHORS = 10;
+	final static int TITLES = 2;
+	
+	public static void main(String[] args) {
+		Program.LookupByAuthor();
+	}
+
+	//Create the array and fill with stuff
+	private static String[][] FillArray(){
+		String[][] booksAuthors = new String[AUTHORS][TITLES];
+		
+		//used a 2d array basically because I've never used one before
+		//i might resubmit using a Book class and list
+		booksAuthors[0][0] = "Frank Herbert";
+		booksAuthors[0][1] = "Dune";
+		booksAuthors[1][0] = "Frank Herbert";
+		booksAuthors[1][1] = "Dune Messiah";
+		booksAuthors[2][0] = "Frank Herbert";
+		booksAuthors[2][1] = "Children of Dune";
+		booksAuthors[3][0] = "Seamus Ennis";
+		booksAuthors[3][1] = "The Irish Bagpipe Primer";
+		booksAuthors[4][0] = "Ben Bahri";
+		booksAuthors[4][1] = "C# in a Nutshell";
+		booksAuthors[5][0] = "Zed Shaw";
+		booksAuthors[5][1] = "Learn Python the Hard Way";
+		booksAuthors[6][0] = "David Giffels";
+		booksAuthors[6][1] = "The Hard Way on Purpose";
+		booksAuthors[7][0] = "Philip K Dick";
+		booksAuthors[7][1] = "Dr. Bloodmoney";
+		booksAuthors[8][0] = "Philip K Dick";
+		booksAuthors[8][1] = "Man in the High Castle";
+		booksAuthors[9][0] = "Philip K Dick";
+		booksAuthors[9][1] = "Do Androids Dream of Electric Sheep?";
+		
+		
+		
+		//return array
+		return booksAuthors;
+	}
+
+	private static void LookupByAuthor(){
+		String[][] booksAuthors = FillArray();
+		String author = GetInputAuthor();
+		
+		//this is where i'm having problems 
+		//everything compiles but the string from the scanner method never matches
+		for(int i = 0; i < 10; i++){
+			if(author == booksAuthors[i][0]){
+				writeMessage(booksAuthors[i][1]);
+			}
+			else{
+				writeMessage("Not found.");
+				break;
+			}
+		}
+			
+	}
+
+	private static String GetInputAuthor(){
+		String author;
+		writeMessage("Enter an author's name:");
+		author = scan.next();
+		
+		return author;
+		
+	}
+	
+	//did this to save some typing
+	private static void writeMessage(String m){
+		System.out.println(m);
+	}
+}
